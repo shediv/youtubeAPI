@@ -8,7 +8,8 @@ angular.module('angularRestfulAuth')
         //Get  trending Videos
         $scope.trending = function() {
             console.log($scope.countryCode)
-            $scope.youtubeAPI = 'https://www.googleapis.com/youtube/v3/videos?part=contentDetails&chart=mostPopular&regionCode='+$scope.countryCode+'&&type=video&maxResults=10&key=AIzaSyAvUS4J75tEZxQZxDbTW1ueRvoQ84sSEHc';
+            console.log($scope.videoCategory)
+            $scope.youtubeAPI = 'https://www.googleapis.com/youtube/v3/videos?part=contentDetails&chart=mostPopular&regionCode='+$scope.countryCode+'&&videoCategoryId='+$scope.videoCategory+'&&type=video&maxResults=10&key=AIzaSyAvUS4J75tEZxQZxDbTW1ueRvoQ84sSEHc';
 
             Main.trending($scope.youtubeAPI, function(res) {                    
                     $scope.videos = res.items;
